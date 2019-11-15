@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IOT Health Monitoring System</title>
+	<style type="text/css">
+		body{
+	font-family: "Montserrat", sans-serif;
+}
+.container{
+	width: 1240px;
+	margin: 0px auto;
+}
+
+header{
+	margin: 0px auto;
+	width: 1240px;
+	text-align: center;
+	font-size: 48px;
+	margin-bottom: 1em;
+}
+b{
+	font-size: 48px;
+	font-family: 'Alfa Slab One';
+	text-shadow: 3px 2px red;
+}
+
+.temperature{
+	width: 570px;
+	/*background: #cd0;*/
+	height: auto;
+	float: left;
+}
+img{
+	margin-left: auto;
+	margin-right: auto;
+	display: block
+}
+
+.pulse_rate{
+	width: 570px;
+	/*background: #0de;*/
+	height: auto;
+	float: left;
+}
+img{
+	margin-top: 2em;
+}
+p{
+	text-align: center;
+	font-size: 24px;
+}
+.values{
+	padding-top: 1em;
+}
+footer{
+	margin: 0px auto;
+	width: 1240px;
+	text-align: center;
+	font-weight: bold;
+	background: #cdcdcd;
+	margin-top: 1em;
+	min-height: 4.2em;
+}
+span{
+	padding-top: 50%;
+	text-shadow: 1px 1px red;
+}
+
+@media screen and (max-width: 1240px){
+	.container{
+		width: 100%;
+	}
+	header{
+		width: 100%;
+	}
+
+	img{
+		max-width: 50%;
+		max-height: auto;
+	}
+	.temperature{
+		width: 50%;
+	}
+	.pulse_rate{
+		width: 50%;
+	}
+	footer{
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 640px){
+	header{
+		width: 100%;
+	}
+	.temperature{
+		width: 100%;
+	}
+	.pulse_rate{
+		width: 100%;
+	}
+	footer{
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 320px){
+	.container{
+		width: 320px;
+	}
+}
+	</style>
+	<meta http-equiv="refresh" content="15" >
+	<link href='https://fonts.googleapis.com/css?family=Alfa Slab One' rel='stylesheet'>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+	<header class="jumbotron"><b>IOT Health Kit Monitoring System</b></header>
+	<div class="container">
+
+			<div class="temperature">
+				<img src="http://www.pvhc.net/img54/zyakunhxioyokexvaitu.png" width="200" height="200">
+				<p class="values">Temperature: {{tempr}} °F</p>
+				{% if tempr>100 %}
+				  <p>Suffering from Fever</p>
+				  {% else %}
+				  <p>Normal</p>
+				  {% endif %}
+			</div>
+			<div class="pulse_rate">
+				<img src="https://media.giphy.com/media/HkwWUJfE9R6fu/giphy.gif" width="200" height="200" >
+				<p class="values">Pulse Rate: {{heart_beat}} beats/min</p>
+				{% if heart_beat>59 and 91>heart_beat %}
+				  <p>Normal Heart beat</p>
+				  {% else %}
+				  <p>Heart Problem</p>
+				  {% endif %}
+			</div>
+
+	</div>
+	<footer><span>&copy; 072/BEX/08, 11, 19, 24</span></footer>
+</body>
+</html>
